@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if all_entries %}
+    {% for entry in all_entries %}
+        <p>Date: {{ entry.date }}</p>
+        <p>Income: {{ entry.sum }}</p>
+        <p>Expense: {{ entry.sum if not entry.income else '' }}</p>
+        <hr>
+    {% endfor %}
+{% else %}
+    <p>No entries found.</p>
+{% endif %}
+
+{% endblock content %}
